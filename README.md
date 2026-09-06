@@ -5,6 +5,8 @@ Authors : Thomas Josephy, Arkadiusz Zaleski, Mikael Tom
 
 Date : 10 June 2026
 
+![demo_screen](docs/images/home.png)
+
 ## Description of the Project
 
 MMA Predictor is a multi-agent system that predicts the outcome of MMA fights and explains *why* it reached that prediction. Instead of relying on a single model, the system distributes the analysis across several specialized agents, each acting as an expert on one dimension of a fight: historical performance, recent news, market sentiment, and statistical modeling. Their outputs are aggregated by an orchestrator and handed to an LLM, which produces the final prediction while reasoning over every agent's findings rather than a single, potentially biased, source.
@@ -14,6 +16,8 @@ The user can interact with the system in two ways: through a conversational chat
 This project was built to critically examine a real problem: sports betting content on social media routinely claims prediction accuracies of 95% or more. By building a genuine prediction pipeline grounded in data, agent coordination, and explainability, this project evaluates whether such claims are realistic, and demonstrates what an honest, transparent prediction system actually looks like.
 
 ## Project Video Demonstration
+
+![me](docs/videos/demo.gif)
 
 A short video demonstration is available showing the system in action : [Watch it here](https://youtu.be/)
 
@@ -35,6 +39,8 @@ An **Orchestrator** coordinates these agents, enforcing a structured workflow an
 - Fight schedules are cached and refreshed once every 7 days, and predictions are cached for 24 hours, since neither is expected to change meaningfully within those windows.
 - User queries in the chatbot are first parsed with spaCy to extract fighter names before any LLM call is made; the LLM is only invoked as a fallback when spaCy fails to extract a name. This keeps token usage low without sacrificing reliability.
 - Web scraping was attempted first but repeatedly got the system blocked; the project pivoted to API-based data sources instead, which proved far more stable and is reflected in the final architecture.
+
+All the details and choices are explained in [`docs/report.pdf`](docs/report.pdf)
 
 ## Features
 
@@ -130,20 +136,17 @@ set BET_TOKEN=<YOUR TOKEN>
 ```
 
 ## How to Run
+The entry point is `main.py`, located inside the `src/` folder.
 
-The entry point is `main.py`, located at the root of the repository.
+From the root of the project, first move into `src/`, then launch the app:
 
-From the root of the project, run:
-
-```bash
-streamlit run src/main.py
-```
+cd src
+streamlit run main.py
 
 If this does not work, depending on your system, try:
 
-```bash
-python3 -m streamlit run src/main.py
-```
+cd src
+python3 -m streamlit run main.py
 
 Once launched, open your browser at [http://localhost:8501](http://localhost:8501)
 
@@ -160,13 +163,13 @@ Make sure the environment variables are exported in the exact same terminal sess
 Run the application on a different port:
 
 ```bash
-streamlit run src/main.py --server.port 8502
+streamlit run main.py --server.port 8502
 ```
 
 Or:
 
 ```bash
-python3 -m streamlit run src/main.py --server.port 8502
+python3 -m streamlit run main.py --server.port 8502
 ```
 
 You can replace `8502` with any port of your choice.
