@@ -139,14 +139,17 @@ set BET_TOKEN=<YOUR TOKEN>
 The entry point is `main.py`, located inside the `src/` folder.
 
 From the root of the project, first move into `src/`, then launch the app:
-
+```bash
 cd src
 streamlit run main.py
+```
 
 If this does not work, depending on your system, try:
 
+```bash
 cd src
 python3 -m streamlit run main.py
+```
 
 Once launched, open your browser at [http://localhost:8501](http://localhost:8501)
 
