@@ -19,7 +19,7 @@ This project was built to critically examine a real problem: sports betting cont
 
 ![me](docs/videos/demo.gif)
 
-A short video demonstration is available showing the system in action : [Watch it here](https://youtu.be/)
+A short video demonstration is available showing the system in action : [Watch it here](https://youtu.be/KJDslY3aEeA)
 
 ## Why This Project Is Technically Interesting
 
